@@ -9,7 +9,7 @@ const GoProConnectionWrapper = () => {
     const checkConnection = async () => {
         setLoading(true);
         try {
-            const response = await axios.get('http://10.5.5.9/gopro/camera/state');
+            const response = await axios.get('http://10.5.5.9:8080/gopro/camera/state');
             if (response.status === 200) {
                 setIsConnected(true);
             } else {
@@ -24,7 +24,7 @@ const GoProConnectionWrapper = () => {
 
     const startRecording = async () => {
         try {
-            const response = await axios.get('http://10.5.5.9/gopro/camera/record?start');
+            const response = await axios.get('http://10.5.5.9:8080/gopro/camera/record?start');
             if (response.status === 200) {
                 setRecording(true);
             } else {
@@ -37,7 +37,7 @@ const GoProConnectionWrapper = () => {
 
     const stopRecording = async () => {
         try {
-            const response = await axios.get('http://10.5.5.9/gopro/camera/record?stop');
+            const response = await axios.get('http://10.5.5.9:8080/gopro/camera/record?stop');
             if (response.status === 200) {
                 setRecording(false);
             } else {
